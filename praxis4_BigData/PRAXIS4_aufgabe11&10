@@ -1,0 +1,121 @@
+AUFGABE 10
+
+a) 
+
+CREATE KEYSPACE cities WITH replication={'class': 'SimpleStrategy','replication_factor': '1'} AND durable_writes= 'true';
+
+CREATE TABLE cities (id text, city text, loc text, pop int, state text, PRIMARY KEY (id));
+	
+COPY Cities (id, city, loc, pop, state) FROM '/home/nosql/Downloads/newplz.csv' WITH DELIMITER=',' AND HEADER = TRUE;
+
+b) 
+
+ALTER TABLE Cities ADD fussball text;
+
+UPDATE cities SET fussball = 'ja' WHERE id='54411';
+UPDATE cities SET fussball = 'ja' WHERE id='62045';
+UPDATE cities SET fussball = 'ja' WHERE id='51640';
+UPDATE cities SET fussball = 'ja' WHERE id='71339';
+UPDATE cities SET fussball = 'ja' WHERE id='55339';
+UPDATE cities SET fussball = 'ja' WHERE id='7419';
+UPDATE cities SET fussball = 'ja' WHERE id='14075';
+UPDATE cities SET fussball = 'ja' WHERE id='19526';
+UPDATE cities SET fussball = 'ja' WHERE id='71646';
+
+UPDATE cities SET fussball = 'ja' WHERE id='30110';
+UPDATE cities SET fussball = 'ja' WHERE id='58319';
+UPDATE cities SET fussball = 'ja' WHERE id='35033';
+UPDATE cities SET fussball = 'ja' WHERE id='66412';
+UPDATE cities SET fussball = 'ja' WHERE id='42325';
+UPDATE cities SET fussball = 'ja' WHERE id='46506';
+
+c)done
+d)done
+
+e)
+
+AUFGABE 4B -REDIS  
+
+INPUT "99034"
+
+OUTPUT: "city" : "TUMTUM", "state" : "WA" 
+1st try: Total execution time: 239 
+2nd try: Total execution time: 162, 
+3rd try: Total execution time: 137
+
+AUFGABE 4C -REDIS
+
+INPUT: "HAMBURG"
+
+OUTPUT: [71339, 71646, 07419, 19526, 55339, 54411, 14075, 62045, 51640]
+1st try: Total execution time: 2004, 
+2nd try Total execution time: 2309, 
+3rd try Total execution time: 1787
+
+
+
+
+AUFGABE 7B -MONGODB
+
+INPUT "99034"
+
+OUTPUT:"city" : "TUMTUM, "state" : "WA"
+1st try: Total execution time: 1003, 
+2nd try Total execution time: 1070, 
+3rd try Total execution time: 1093
+
+AUFGABE 7C -MONGODB
+
+INPUT: "HAMBURG"
+
+OUTPUT:
+
+ "_id" : "07419" 
+ "_id" : "14075" 
+ "_id" : "19526" 
+ "_id" : "51640" 
+ "_id" : "54411" 
+ "_id" : "55339" 
+ "_id" : "62045" 
+ "_id" : "71339" 
+ "_id" : "71646" 
+
+1st try: Total execution time: 1869, 
+2nd try Total execution time: 1403, 
+3rd try Total execution time: 1176
+
+AUFGABE 10C -Cassandra
+
+INPUT: "99034"
+
+OUTPUT:
+[Row[ROCHERT, MN]]
+1st try Total execution time: 1718, 
+2nd try Total execution time: 1592,
+3rd try Total execution time: 1822
+
+
+
+
+AUFGABE 10D -Cassandra
+
+INPUT 'HAMBURG'
+
+OUTPUT: [Row[54411], Row[62045], Row[51640], Row[71339], Row[55339], Row[7419], Row[14075], Row[19526], Row[71646]]
+1st try Total execution time: 2283,
+2nd try Total execution time: 2149,
+3rd try Total execution time: 2158
+
+
+
+AUFGABE 11
+
+To do wordcount:
+
+in /usr/local/hadoop you have to do bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar wordcount /user/input output
+
+To see the output
+
+in /usr/local/hadoop you have to do bin/hdfs dfs -cat output/*
+
+
